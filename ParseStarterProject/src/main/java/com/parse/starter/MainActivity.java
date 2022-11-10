@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void done(ParseObject object, ParseException e) {
         if(e == null && object != null) {
-          //object.put("Tweet_username", "nico");
+          //update data and save
           object.put("Tweets","hello");
           object.saveInBackground(new SaveCallback() {
             @Override
@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
               }
             }
           });
-          //Log.i("username is: ", object.getString("Tweet_username"));
           Log.i("tweet is: ", object.getString("Tweets"));
         }
         else
