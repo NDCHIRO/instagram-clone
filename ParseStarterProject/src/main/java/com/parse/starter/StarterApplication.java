@@ -32,13 +32,13 @@ public class StarterApplication extends Application {
     Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
             .applicationId("myappID")
             .clientKey("qJ4OXFgkPRPW")
-            .server("http://18.205.152.208/parse/")
+            .server("http://52.87.236.105/parse/")
             .build()
     );
 
     ParseObject object = new ParseObject("ExampleObject");
-    object.put("myNumber", "123");
-    object.put("myString", "rob");
+    /*object.put("myNumber", "123");
+    object.put("myString", "rob");*/
 
     object.saveInBackground(new SaveCallback () {
       @Override
