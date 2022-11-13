@@ -38,7 +38,7 @@ public class StarterApplication extends Application {
 
     ParseObject object = new ParseObject("ExampleObject");
     /*object.put("myNumber", "123");
-    object.put("myString", "rob");*/
+    object.put("myString", "rob");
 
     object.saveInBackground(new SaveCallback () {
       @Override
@@ -49,7 +49,7 @@ public class StarterApplication extends Application {
           Log.i("Parse Result", "Failed" + ex.toString());
         }
       }
-    });
+    });*/
 
 
     ParseUser.enableAutomaticUser();
