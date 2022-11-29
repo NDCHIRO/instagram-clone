@@ -32,7 +32,7 @@ public class StarterApplication extends Application {
     Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
             .applicationId("myappID")
             .clientKey("qJ4OXFgkPRPW")
-            .server("http://52.87.236.105/parse/")
+            .server("http://18.212.36.38/parse/")
             .build()
     );
 

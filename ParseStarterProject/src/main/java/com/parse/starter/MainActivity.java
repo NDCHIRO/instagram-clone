@@ -25,6 +25,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
+import com.parse.SignUpCallback;
 
 import java.util.List;
 import java.util.Random;
@@ -37,6 +38,21 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    ParseUser user = new ParseUser();
+    user.setUsername("nico");
+    user.setPassword("GGgg");
+    user.signUpInBackground(new SignUpCallback() {
+      @Override
+      public void done(ParseException e) {
+        if(e==null)
+        {
+          Log.i("sign up","done!!");
+        }
+        else
+          e.printStackTrace();
+      }
+    });
     /*ParseObject Score = new ParseObject("Score");
     Score.put("username","niro");
     Score.put("score1",95);
@@ -49,26 +65,25 @@ public class MainActivity extends AppCompatActivity {
           e.printStackTrace();
       }
     });*/
+    /*
     ParseQuery<ParseObject> parseQuery =  ParseQuery.getQuery("Score");
+    parseQuery.whereGreaterThan("score1",50);
+
     parseQuery.findInBackground(new FindCallback<ParseObject>() {
       @Override
       public void done(List<ParseObject> objects, ParseException e) {
         if(e==null && objects.size()!=0) {
-            for(ParseObject object:objects)
+            for(final ParseObject object:objects)
             {
+              //object.put("score1",object.getInt("score1")+20);
               //object.put("score1",(int)Math.floor(Math.random()*(100-1+1)+1));
-              object.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
-
-                }
-              });
+              object.saveInBackground();
               Log.i("username is :",object.getString("username"));
               Log.i("score1 is :",Integer.toString(object.getInt("score1")));
             }
         }
       }
-    });
+    });*/
     /*parseQuery.getInBackground("EBOYxUF2XO", new GetCallback<ParseObject>() {
       @Override
       public void done(ParseObject object, ParseException e) {
